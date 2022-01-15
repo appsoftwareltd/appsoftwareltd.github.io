@@ -1,0 +1,402 @@
+/* 
+    
+    THIS FILE IS DISTRIBUTED VIA SCRIPT AND SHOULD NOT BE MODIFIED IN CLIENT PROJECTS 
+
+*/
+
+/* ------------------------------------------ */
+/* Fixed width fonts                          */
+/* ------------------------------------------ */
+
+@font-face {
+    font-family: "Roboto Mono";
+    src: url(/fonts/roboto-mono/RobotoMono-Regular.ttf) format("truetype");
+}
+
+/* ------------------------------------------ */
+/* Debug                                      */
+/* ------------------------------------------ */
+
+.debug-size {
+    position: relative;
+}
+
+    .debug-size > div {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        padding: 10px;
+        background-color: #666666;
+        z-index: 99;
+        color: #ffffff;
+        opacity: 0.5;
+    }
+
+/* ------------------------------------------ */
+/* Bootstrap overrides                        */
+/* ------------------------------------------ */
+
+input[readonly] {
+    background-color: #fff !important;
+}
+
+.dropdown-item {
+    color: #555;
+}
+
+p.lead {
+    font-size: 30px;
+}
+
+code {
+    color: inherit !important;
+}
+
+/* ------------------------------------------ */
+/* General overrides                        */
+/* ------------------------------------------ */
+
+/* Prevent outline when elements pressed on mobile */
+
+*:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Force in bootstrap */
+
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active {
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+/* ------------------------------------------ */
+/* General Layout                             */
+/* ------------------------------------------ */
+
+/* Prevent horizontal scroll */
+
+html, body {
+    max-width: 100%;
+    /* 
+        height required for max height columns
+    */
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'open-sans', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    color: #555;
+    font-size: 14px;
+}
+
+.logo-brand-text {
+    font-family: 'open-sans', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.brand-colored-text {
+    color: #14c3ff;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 26px;
+}
+
+body > .page-content {
+    padding: 10px;
+    /* flex supports sticky footer */
+    flex: 1 0 auto;
+}
+
+@media (max-width: 991px) {
+
+    /* For mobile view where not tying 3 columns height together with calc .. vh, need to set min height. Could opt to auto resize https://stackoverflow.com/questions/454202/creating-a-textarea-with-auto-resize */
+
+
+    body > .page-content {
+        padding: 0;
+        /* flex supports sticky footer */
+        flex: 1 0 auto;
+    }
+
+        body > .page-content > .inner-page-content {
+            padding: 0 10px !important;
+        }
+}
+
+/* ------------------------------------------ */
+/* Brand                                      */
+/* ------------------------------------------ */
+
+.navbar-brand > img.brand-icon {
+    height: 28px;
+    position: relative;
+    top: -2px;
+}
+
+#mobile-side-nav-toggle-control-bars, #mobile-side-nav-header {
+    display: none;
+}
+
+/* In addition to special class mobile-side-nav-toggle-control which allows server side control, restrict to mobile view only */
+
+@media (max-width: 991px) {
+
+    #navbar-toggler.hidden {
+        display: none;
+    }
+
+    .navbar-brand.mobile-side-nav-toggle-control > #mobile-side-nav-toggle-control-bars {
+        display: inline;
+        position: relative;
+        left: -24px;
+        top: 2px;
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+        pointer-events: none;
+    }
+
+        .navbar-brand.mobile-side-nav-toggle-control > #mobile-side-nav-toggle-control-bars + img.brand-icon {
+            /* Sets up icon to cover screen right the way to the left, capturing area where navigation bars display */
+            position: relative;
+            left: -40px;
+            padding-left: 22px;
+        }
+
+    .navbar-brand.mobile-side-nav-toggle-control.active {
+        position: relative;
+        left: -13px;
+    }
+
+    #mobile-side-nav-header.active {
+        display: block;
+        background-color: #bcdeea;
+        height: 50px;
+        width: 100%;
+        margin-top: -16px;
+        margin-bottom: 16px;
+    }
+
+    #mobile-side-nav-header-close {
+        font-size: 24px;
+        color: #fff;
+        position: absolute;
+        top: 54px;
+        right: 20px;
+        cursor: pointer;
+        padding: 10px 10px 10px 40px;
+    }
+
+    #mobile-side-nav-header > ul {
+        padding: 14px;
+    }
+
+        #mobile-side-nav-header > ul > li {
+            list-style-type: none;
+            display: inline-block;
+        }
+
+            #mobile-side-nav-header > ul > li > a {
+                margin: 0 4px;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+    /* Side nav toggle animation */
+
+    .animated {
+        -webkit-animation-duration: 0.3s;
+        animation-duration: 0.3s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        animation-iteration-count: 1;
+        -webkit-animation-iteration-count: 1;
+    }
+
+    @-webkit-keyframes bounce {
+        0% {
+            -webkit-transform: translateX(-8px);
+        }
+
+        100% {
+            -webkit-transform: translateX(0px);
+        }
+    }
+
+    @keyframes bounce {
+        0% {
+            transform: translateX(-8px);
+        }
+
+        100% {
+            transform: translateX(0px);
+        }
+    }
+
+    .bounce {
+        -webkit-animation-name: bounce;
+        animation-name: bounce;
+    }
+}
+
+/* ------------------------------------------ */
+/* Footer                                     */
+/* ------------------------------------------ */
+footer {
+    background-color: #e5e5e5;
+    color: #e3e3e3;
+}
+
+    footer > ul {
+        margin-bottom: 0;
+    }
+
+        footer > ul > li {
+            list-style-type: none;
+            margin-right: 20px;
+        }
+
+    footer a {
+        color: #999;
+    }
+
+/* Ref https://startbootstrap.com/snippets/sticky-footer-flexbox/ */
+
+.sticky-footer {
+    flex-shrink: none;
+}
+
+/* ------------------------------------------ */
+/* Utility                                    */
+/* ------------------------------------------ */
+
+
+/* Use in conjunction with d-none d-block */
+
+.standard-ui-block-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 9999;
+    cursor: pointer;
+}
+
+    .standard-ui-block-overlay > .standard-ui-block-overlay-ajax-loader-container {
+        padding: 24px;
+        background-color: #fff;
+        text-align: center;
+    }
+
+        .standard-ui-block-overlay > .standard-ui-block-overlay-ajax-loader-container > img {
+            display: inline-block;
+            margin: auto;
+        }
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.link-text {
+    color: rgb(0, 123, 255) !important;
+    cursor: pointer;
+}
+
+.width-70 {
+    width: 70px;
+}
+
+.width-120 {
+    width: 120px;
+}
+
+.ajax-loader {
+    display: none;
+}
+
+    .ajax-loader.active {
+        display: inline;
+    }
+
+/* For displaying alerts at the top of the screen */
+
+.temp-alert {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    max-width: 400px;
+    margin-left: -200px;
+    z-index: 99;
+}
+
+/* ------------------------------------------ */
+/* Validation                                 */
+/* ------------------------------------------ */
+
+
+/* Use of input-validation-error class means this works with custom AJAX and standard MVC forms validation */
+
+input.input-validation-error, select.input-validation-error, textarea.input-validation-error, div.input-validation-error {
+    border: 1px solid red;
+}
+
+/* Use of validation-summary-errors class means this works with custom AJAX and standard MVC forms validation */
+
+.validation-summary-errors,
+.result-summary {
+    padding: 10px;
+    border-radius: 4px;
+}
+
+    .result-summary.success {
+        color: green;
+        background-color: rgb(208, 255, 212);
+    }
+
+.validation-summary-errors {
+    color: red;
+    background-color: rgb(255, 230, 234);
+}
+
+    .validation-summary-errors ul {
+        margin-top: 10px;
+        padding-left: 40px;
+    }
+
+        .validation-summary-errors ul li {
+            line-height: 30px;
+            list-style-type: disc;
+        }
+
+.edit-entry-validation-summary-errors.validation-summary-errors {
+    position: fixed;
+    top: 20px;
+    left: calc((100vw / 2) - 190px);
+    width: 380px;
+    margin-left: auto;
+}

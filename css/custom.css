@@ -1,0 +1,25 @@
+
+.entry-preview-card {
+
+    cursor: pointer;
+}
+
+.profile-photo-circle-cropped {
+    width: 350px;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.profile-photo-circle-cropped > img {
+    height: 100%;
+    width: auto;
+
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+}
